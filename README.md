@@ -23,4 +23,4 @@ The group found it to be important to touch upon the following points:
 
 ## Contact
 
-Spencer Johnson - spencerjames.johnson@students.salle.url.edu - [@papasj19](https://www.instagram.com/papasj19/) - [@papasj19](https://github.com/papasj19) 
+Spencer Johnson - spencerjames.johnson@students.salle.url.edu - Social: [@papasj19](https://www.instagram.com/papasj19/) - GitHub:  [@papasj19](https://github.com/papasj19) 
