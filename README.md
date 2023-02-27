@@ -5,6 +5,17 @@ on Monday 27th February, 2023
 
 The following explanation is in conjunction with Knowledge Based Systems semester 2 project 
 
+## Structure
+
+* Phase 1: What is a Chatbot?
+    * PDF: Defining_a_Chatbot
+     
+* Phase 2: Presenting the Chosen Domain
+    * PowerPoint 
+    * Code
+    * ReadMe
+* Phase 3: Implementation
+
 ## System requirements
 
 * [JetBrains PyCharm](https://www.jetbrains.com/pycharm/) 
