@@ -12,16 +12,19 @@ The following explanation is in conjunction with Knowledge Based Systems semeste
      
 * Phase 2: Presenting the Chosen Domain
     * PowerPoint 
-    * Code
+    * Code: main.py
     * ReadMe
+    
 * Phase 3: Implementation
 
 ## System requirements
 
 * [JetBrains PyCharm](https://www.jetbrains.com/pycharm/) 
 * Libraries used:
-	* os 
-	* json
+	* [nltk](https://www.nltk.org)  
+	* [pandas](https://pandas.pydata.org)
+    * [sklearn](https://scikit-learn.org/stable/index.html)
+    * [scipy](https://scipy.org)
 
 
 ## What does our Chatbot do?
@@ -31,6 +34,8 @@ This chatbot will help the user to
 ## Other Important Info: 
 
 The group found it to be important to touch upon the following points: 
+
+The first point would be the NLP. The code and libraries were acquired through attendence at a masterclass during the semester. The libraries utilized are listed in the system requirements and the process followed will closely resemble what we learned during the aforementioned session. 
 
 ## Contact
 
