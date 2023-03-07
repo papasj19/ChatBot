@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6">
+    <Prefix name="" IRI="http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Aquatic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classification"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cute"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dragon"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Egg_Group"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Electric"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Evolution"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Evolution_method"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Field"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fighting"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fire"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Flying"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ghost"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Grass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LevelUp"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Location"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mega-evolution"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Method"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Physical"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pokemon"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Psychic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Region"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Route"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Spritual"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Stone"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Strong"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Trading"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Type"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ugly"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Volcanic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Water"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Weak"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Winged"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Aquatic"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Water"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Volcanic"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Fire"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Winged"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Flying"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Aquatic"/>
+        <Class IRI="#Egg_Group"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classification"/>
+        <Class IRI="#Pokemon"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cute"/>
+        <Class IRI="#Weak"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dragon"/>
+        <Class IRI="#Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Egg_Group"/>
+        <Class IRI="#Pokemon"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Electric"/>
+        <Class IRI="#Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Evolution"/>
+        <Class IRI="#Pokemon"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Evolution_method"/>
+        <Class IRI="#Evolution"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Field"/>
+        <Class IRI="#Egg_Group"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fighting"/>
+        <Class IRI="#Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fire"/>
+        <Class IRI="#Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Flying"/>
+        <Class IRI="#Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ghost"/>
+        <Class IRI="#Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Grass"/>
+        <Class IRI="#Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LevelUp"/>
+        <Class IRI="#Evolution_method"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Location"/>
+        <Class IRI="#Pokemon"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mega-evolution"/>
+        <Class IRI="#Evolution"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Method"/>
+        <Class IRI="#Region"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Physical"/>
+        <Class IRI="#Strong"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Psychic"/>
+        <Class IRI="#Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Region"/>
+        <Class IRI="#Location"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Route"/>
+        <Class IRI="#Region"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Spritual"/>
+        <Class IRI="#Strong"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Stone"/>
+        <Class IRI="#Evolution_method"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Strong"/>
+        <Class IRI="#Classification"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Trading"/>
+        <Class IRI="#Evolution_method"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Type"/>
+        <Class IRI="#Pokemon"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ugly"/>
+        <Class IRI="#Weak"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Volcanic"/>
+        <Class IRI="#Egg_Group"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Water"/>
+        <Class IRI="#Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Weak"/>
+        <Class IRI="#Classification"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Winged"/>
+        <Class IRI="#Egg_Group"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Cute"/>
+        <Class IRI="#Ugly"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Evolution"/>
+        <Class IRI="#Pokemon"/>
+        <Class IRI="#Strong"/>
+        <Class IRI="#Weak"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Fighting"/>
+        <Class IRI="#Flying"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Fire"/>
+        <Class IRI="#Grass"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Fire"/>
+        <Class IRI="#Water"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Grass"/>
+        <Class IRI="#Water"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Physical"/>
+        <Class IRI="#Spritual"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Strong"/>
+        <Class IRI="#Weak"/>
+    </DisjointClasses>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
