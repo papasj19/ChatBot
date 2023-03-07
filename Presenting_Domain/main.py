@@ -58,7 +58,13 @@ def fit_vocabulary(data):
         iter += 1
         dudes = stem(sentence)
     return vocabulary
+    
+    
+    
+def begin_program():
+    print('Welcome to the Project')
+    
 
 
 if __name__ == '__main__':
-    print('New Project')
+    begin_program
