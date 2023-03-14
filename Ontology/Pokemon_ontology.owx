@@ -25,7 +25,7 @@
         <Class IRI="#Dragon"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Egg_Group"/>
+        <Class IRI="#EggGroup"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Electric"/>
@@ -34,7 +34,7 @@
         <Class IRI="#Evolution"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Evolution_method"/>
+        <Class IRI="#EvolutionMethod"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Field"/>
@@ -58,10 +58,7 @@
         <Class IRI="#LevelUp"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Location"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Mega-evolution"/>
+        <Class IRI="#MegaEvolution"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Method"/>
@@ -134,7 +131,7 @@
     </EquivalentClasses>
     <SubClassOf>
         <Class IRI="#Aquatic"/>
-        <Class IRI="#Egg_Group"/>
+        <Class IRI="#EggGroup"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Classification"/>
@@ -149,7 +146,7 @@
         <Class IRI="#Type"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Egg_Group"/>
+        <Class IRI="#EggGroup"/>
         <Class IRI="#Pokemon"/>
     </SubClassOf>
     <SubClassOf>
@@ -161,12 +158,12 @@
         <Class IRI="#Pokemon"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Evolution_method"/>
+        <Class IRI="#EvolutionMethod"/>
         <Class IRI="#Evolution"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Field"/>
-        <Class IRI="#Egg_Group"/>
+        <Class IRI="#EggGroup"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Fighting"/>
@@ -190,14 +187,10 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#LevelUp"/>
-        <Class IRI="#Evolution_method"/>
+        <Class IRI="#EvolutionMethod"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Location"/>
-        <Class IRI="#Pokemon"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Mega-evolution"/>
+        <Class IRI="#MegaEvolution"/>
         <Class IRI="#Evolution"/>
     </SubClassOf>
     <SubClassOf>
@@ -214,7 +207,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Region"/>
-        <Class IRI="#Location"/>
+        <Class IRI="#Pokemon"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Route"/>
@@ -226,7 +219,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Stone"/>
-        <Class IRI="#Evolution_method"/>
+        <Class IRI="#EvolutionMethod"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Strong"/>
@@ -234,7 +227,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Trading"/>
-        <Class IRI="#Evolution_method"/>
+        <Class IRI="#EvolutionMethod"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Type"/>
@@ -246,7 +239,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Volcanic"/>
-        <Class IRI="#Egg_Group"/>
+        <Class IRI="#EggGroup"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Water"/>
@@ -258,7 +251,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Winged"/>
-        <Class IRI="#Egg_Group"/>
+        <Class IRI="#EggGroup"/>
     </SubClassOf>
     <DisjointClasses>
         <Class IRI="#Cute"/>
