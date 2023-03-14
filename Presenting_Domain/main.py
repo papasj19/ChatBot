@@ -16,12 +16,14 @@ import scipy
 nltk.download('punkt')
 nltk.download('wordnet')
 nltk.download('omw-1.4')
+nltk.download('stopwords')
 
 number_question1 = "How many pets have you had in your life?"
 
 questionA = "How would you classify the status of your room?"
 questionB = "What colors do you identify with the most?"
 questionC = "What is your favorite season? "
+questionD = "What weather do you like the most? "
 
 
 def tokenize(sentence):
@@ -29,10 +31,10 @@ def tokenize(sentence):
     return tokens
 
 
-def stem(sentence):
+def stem(words):
     
     ## ****** CODE START ****** we chose lancaster because we liked it more
-    words = tokenize(sentence)
+   
     sentence_stemmedP = []
     sentence_stemmedL = []
     porter = PorterStemmer()
@@ -44,12 +46,11 @@ def stem(sentence):
     return sentence_stemmedL
 
 
-def lemmatize(sentence):
+def lemmatize(words):
     
     ## ****** CODE START ******
     lemmatized = []
     lemmatizer = WordNetLemmatizer()
-    words = tokenize(sentence)
     for word in words:
       lemmatized.append(lemmatizer.lemmatize(word, pos="v"))
 
@@ -66,17 +67,19 @@ def filter_stop_words(sentence):
     return filtered
 
 
-def fit_vocabulary(data):
-    vocabulary = {}
+def doThings(sentence):
+    filtered = []
+    lemmed = []
+    stemmed = []
+    filtered = filter_stop_words(sentence)
+    lemmed = lemmatize(filtered) #we are not using because it trimmed the word too much
+    stemmed = stem(filtered)
+    return stemmed
 
-    temp = []
-    iter = 0
+def processInfo(info): 
+    processedInfo = []
 
-    for sentence in data:
-        temp[iter] = data.split(" ")
-        iter += 1
-        dudes = stem(sentence)
-    return vocabulary
+    return processedInfo
     
     
     
