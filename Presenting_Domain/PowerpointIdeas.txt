@@ -7,3 +7,9 @@ What is our chosen domain?
 What is a problem we want to solve? 
 
 We will have to deliver a powerpoint, readme and the code on March 19
+
+
+Entity recognition - we only need to find the correct part of the answer related to the question 
+
+Sentiment analysis 
+

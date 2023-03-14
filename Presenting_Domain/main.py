@@ -13,6 +13,16 @@ from sklearn.feature_extraction.text import CountVectorizer
 import sklearn.manifold
 import scipy
 
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+
+number_question1 = "How many pets have you had in your life?"
+
+questionA = "How would you classify the status of your room?"
+questionB = "What colors do you identify with the most?"
+questionC = "What is your favorite season? "
+
 
 def tokenize(sentence):
     tokens = nltk.word_tokenize(sentence)
@@ -20,20 +30,29 @@ def tokenize(sentence):
 
 
 def stem(sentence):
+    
+    ## ****** CODE START ****** we chose lancaster because we liked it more
     words = tokenize(sentence)
-    sentence_stemmed = []
+    sentence_stemmedP = []
+    sentence_stemmedL = []
     porter = PorterStemmer()
-    for word in words:
-        sentence_stemmed.append(word.format(word, porter.stem(word)))
-    return sentence_stemmed
+    lancaster = LancasterStemmer()
+    for dude in words: 
+        sentence_stemmedP.append(porter.stem(dude))
+        sentence_stemmedL.append(lancaster.stem(dude))
+        
+    return sentence_stemmedL
 
 
 def lemmatize(sentence):
+    
+    ## ****** CODE START ******
     lemmatized = []
     lemmatizer = WordNetLemmatizer()
     words = tokenize(sentence)
     for word in words:
-        lemmatized.append(word.format(word, lemmatizer.lemmatize(word, pos="v")))
+      lemmatized.append(lemmatizer.lemmatize(word, pos="v"))
+
     return lemmatized
 
 
