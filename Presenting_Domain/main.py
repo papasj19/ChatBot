@@ -21,6 +21,8 @@ import random
 #nltk.download('omw-1.4')
 #nltk.download('stopwords')
 
+
+
 noEvolutions = {"Magmar", "Electabuzz", "Chansey", "Mr. Mime", "Pinsir"}
 weakUgly = {"Ratata", "Oddish", "Abra", "Mankey", "Bulbasaur", "Magikarp"}
 weakCute = {"Pichu", "Charmander", "Squirtle", "Dratini"}
@@ -35,8 +37,8 @@ electricType = {"Pikachu", "Pichu", "Electabuzz"}
 grassType = {"Oddish", "Pinsir", "Bulbasaur", "Venasaur"}
 waterType = {"Squirtle", "Magikarp", "Gyarados", "Blastoise"}
 
-severeWeatherWords = {"thunderStorm", "lightning", "thunder", "storm", "snow", "winter", "yellow"}
-warmWeatherWords = {"Sun", "Beach", "Warm", "Hot", "Summer", "Red", "Orange", "Spicy"}
+severeWeatherWords = {"thunderstorm", "lightning", "thunder", "storm", "snow", "winter", "yellow"}
+warmWeatherWords = {"Sun", "Beach", "Warm", "hot", "sum", "Red", "Orange", "Spicy"}
 waterWords = {"Boat", "Lake", "Spring", "Rain", "Blue", "Purple", "Swim"}
 grassWords = {"Autumn", "Mess", "Dirty", "Green", "Run", "Hike", "Brown"}
 
@@ -77,6 +79,8 @@ ynQuestionsW = {
     "Do you use a lot of sun screen?",
     "Do you dislike sweating?"
 }
+
+
 
 
 def tokenize(sentence):
@@ -134,49 +138,83 @@ def processInfo(info):
     return processedInfo
 
 
-def interpretWord(w, metricPhy, metricWx, metricWy):
+def interpretWord(w):
     for guy in severeWeatherWords:
         if (w == guy):
-            metricWx = metricWx - 10
+            decreaseWx()
     for guy in warmWeatherWords:
         if (w == guy):
-            metricWx = metricWx + 10
+            increaseWx()
     for guy in waterWords:
         if (w == guy):
-            metricWy = metricWy - 10
+            decreaseWy()
     for guy in grassWords:
         if (w == guy):
-            metricWy = metricWy + 10
+            increaseWy()
     for guy in physicalWords:
         if (w == guy):
-            metricPhy = metricPhy + 10
+            increaseP()
     for guy in nonPhysWords:
         if (w == guy):
-            metricPhy = metricPhy - 10
+            decreaseP()
 
 
-def interpretYN(w, spin, metricPhy, metricWx):
+def decreaseWx():
+    global userWeatherMX
+    return userWeatherMX - 10
+
+
+def increaseWx():
+    global userWeatherMX
+    return userWeatherMX + 10
+
+
+def decreaseWy():
+    global userWeatherMY
+    return userWeatherMY - 10
+
+
+def increaseWy():
+    global userWeatherMY
+    return userWeatherMY + 10
+
+
+def decreaseP():
+    global userPhysMet
+    return userPhysMet - 10
+
+
+def increaseP():
+    global userPhysMet
+    return userPhysMet + 10
+
+
+
+
+
+def interpretYN(w, spin):
     if (spin == 1):
         # weather
         if (w == "Y" or w == "y"):
-            metricWx = metricWx - 10
+            decreaseWx()
         elif (w == "N" or w == "n"):
-            metricWx = metricWx + 10
+            increaseWx()
     elif (spin == 2):
         # physicality
         if (w == "Y" or w == "y"):
-            metricPhy = metricPhy - 10
+            decreaseP()
         elif (w == "N" or w == "n"):
-            metricPhy = metricPhy + 10
+            increaseP()
 
 
 
 
-def proposeQuestion(numNums, numWords, numYNWs, numYNPs, physicalMet, weatherMetx, weatherMety, noEvolFlag):
+def proposeQuestion(numNums, numWords, numYNWs, numYNPs):
+
     myNum = random.randint(1, 4)
     total = numWords+numNums+numYNPs+numYNWs
     userInput = 0
-    myNum = 0
+    noEvolFlag = False
     while(total < 11):
 
         # word response
@@ -187,7 +225,7 @@ def proposeQuestion(numNums, numWords, numYNWs, numYNPs, physicalMet, weatherMet
             userInput = input("input: ")
             deconstr = doThings(userInput)
             for guy in deconstr:
-                interpretWord(guy,physicalMet,weatherMetx,weatherMety)
+                interpretWord(guy)
         # number response
         elif (numNums < 2 and myNum == 2):
             print("Please respond with a number")
@@ -205,17 +243,18 @@ def proposeQuestion(numNums, numWords, numYNWs, numYNPs, physicalMet, weatherMet
             numYNWs = numYNWs + 1
             print(random.choice(list(ynQuestionsW)))
             userInput = input("choice: ")
-            interpretYN(userInput, 1, physicalMet, weatherMetx)
+            interpretYN(userInput, 1)
         elif (numYNPs < 3 and myNum == 4):
             print("Please respond with a Y|N")
             numYNPs = numYNPs + 1
             print(random.choice(list(ynQuestionsP)))
             userInput = input("choice: ")
-            interpretYN(userInput, 2, physicalMet, weatherMetx)
+            interpretYN(userInput, 2)
         total = numWords + numNums + numYNPs + numYNWs
         userInput = 0
         myNum = 0
         myNum = random.randint(1, 4)
+    return noEvolFlag
 
 
 
@@ -224,15 +263,16 @@ if __name__ == '__main__':
     numNumbQs = 0
     numWQs = 0
     numPQs = 0
-    userPhysMet = 0
-    userWeatherMX = 0
-    userWeatherMY = 0
     noEvolFlag = False
 
+
     print("Welcome to the Project\n\tThis will be conducted as a Personality test")
-    print("\tYou will be presented with different types of questions and prompted for a response\n\n")
-    proposeQuestion(numNumbQs, numWordQs, numWQs, numPQs, userPhysMet, userWeatherMX, userWeatherMY, noEvolFlag)
+    print("\tYou will be presented with different types of questions and prompted for a response\n")
+    noEvolFlag = proposeQuestion(numNumbQs, numWordQs, numWQs, numPQs)
     print("\nThe questions have now completed... Please stand by while we view your results")
+    print("Your seem to be a physical score of ", userPhysMet)
+    print("Your weather had an X", userWeatherMX, " followed by a Y of ", userWeatherMY)
+
 
 
 
