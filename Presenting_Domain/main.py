@@ -230,6 +230,22 @@ def proposeQuestion(numNums, numWords, numYNWs, numYNPs, thePerson):
     return noEvolFlag
 
 
+def useMetrics(senorUser):
+    if(senorUser.userWeatherMX < 0):
+        print("Water or Electric type")
+    elif(senorUser.userWeatherMX > 0):
+        print("Fire or Grass")
+    elif(senorUser == 0):
+        print("More info needed")
+
+    if(senorUser.userPhysMet <= -10):
+        print("nerd")
+    elif(senorUser.userPhysMet >= 10):
+        print("Mahcamp")
+    elif(senorUser.userPhysMet >-11 and senorUser.userPhysMet < 11 ):
+        print("weak ugly bc im tired")
+
+
 if __name__ == '__main__':
     numWordQs = 0
     numNumbQs = 0
@@ -241,9 +257,8 @@ if __name__ == '__main__':
     print("Welcome to the Project\n\tThis will be conducted as a Personality test")
     print("\tYou will be presented with different types of questions and prompted for a response\n")
     noEvolFlag = proposeQuestion(numNumbQs, numWordQs, numWQs, numPQs, thePerson)
-    print("\nThe questions have now completed... Please stand by while we view your results")
-    print("Your seem to be a physical score of ", thePerson.userPhysMet)
-    print("Your weather had an X", thePerson.userWeatherMX, " followed by a Y of ", thePerson.userWeatherMY)
+    print("\nThe questions have now completed... Please stand by while we view your results\n")
+    useMetrics(thePerson)
 
 
 
