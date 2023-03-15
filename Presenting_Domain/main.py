@@ -15,12 +15,18 @@ import scipy
 
 import random
 
-#if you need to download some random lib it is probably here
-#nltk.download('punkt')
-#nltk.download('wordnet')
-#nltk.download('omw-1.4')
-#nltk.download('stopwords')
 
+# if you need to download some random lib it is probably here
+# nltk.download('punkt')
+# nltk.download('wordnet')
+# nltk.download('omw-1.4')
+# nltk.download('stopwords')
+
+class TheUser:
+    def __init__(self, userPhysMet, userWeatherMX, userWeatherMY):
+        self.userPhysMet = userPhysMet
+        self.userWeatherMY = userWeatherMX
+        self.userWeatherMX = userWeatherMY
 
 
 noEvolutions = {"Magmar", "Electabuzz", "Chansey", "Mr. Mime", "Pinsir"}
@@ -44,8 +50,6 @@ grassWords = {"Autumn", "Mess", "Dirty", "Green", "Run", "Hike", "Brown"}
 
 physicalWords = {"Sport", "Run", "Hike", "Weight", "Lift", "Autumn", "Mess", "Dirty", "Green", "Team"}
 nonPhysWords = {"Book", "Art", "Comput", "Game", "Clean", "Org", "White", "Black", "Put", "Away", "Solo", "Individ"}
-
-
 
 numberQuestions = [
     "How many pets have you had in your life?",
@@ -79,8 +83,6 @@ ynQuestionsW = {
     "Do you use a lot of sun screen?",
     "Do you dislike sweating?"
 }
-
-
 
 
 def tokenize(sentence):
@@ -138,84 +140,55 @@ def processInfo(info):
     return processedInfo
 
 
-def interpretWord(w):
+def interpretWord(w, thePerson):
     for guy in severeWeatherWords:
         if (w == guy):
-            decreaseWx()
+            thePerson.userWeatherMX -= 10
+            # decreaseWx()
     for guy in warmWeatherWords:
         if (w == guy):
-            increaseWx()
+            thePerson.userWeatherMX += 10
+            #increaseWx()
     for guy in waterWords:
         if (w == guy):
-            decreaseWy()
+            thePerson.userWeatherMY -= 10
+            #decreaseWy()
     for guy in grassWords:
         if (w == guy):
-            increaseWy()
+            thePerson.userWeatherMY += 10
+            #increaseWy()
     for guy in physicalWords:
         if (w == guy):
-            increaseP()
+            thePerson.userPhysMet += 10
+            #increaseP()
     for guy in nonPhysWords:
         if (w == guy):
-            decreaseP()
+            thePerson.userPhysMet -= 10
 
 
-def decreaseWx():
-    global userWeatherMX
-    return userWeatherMX - 10
-
-
-def increaseWx():
-    global userWeatherMX
-    return userWeatherMX + 10
-
-
-def decreaseWy():
-    global userWeatherMY
-    return userWeatherMY - 10
-
-
-def increaseWy():
-    global userWeatherMY
-    return userWeatherMY + 10
-
-
-def decreaseP():
-    global userPhysMet
-    return userPhysMet - 10
-
-
-def increaseP():
-    global userPhysMet
-    return userPhysMet + 10
-
-
-
-
-
-def interpretYN(w, spin):
+def interpretYN(w, spin, thePerson):
     if (spin == 1):
         # weather
         if (w == "Y" or w == "y"):
-            decreaseWx()
+            thePerson.userWeatherMX -= 10
         elif (w == "N" or w == "n"):
-            increaseWx()
+            thePerson.userWeatherMX += 10
     elif (spin == 2):
         # physicality
         if (w == "Y" or w == "y"):
-            decreaseP()
+            thePerson.userPhysMet -= 10
+            #decreaseP()
         elif (w == "N" or w == "n"):
-            increaseP()
+            thePerson.userPhysMet += 10
+            #increaseP()
 
 
-
-
-def proposeQuestion(numNums, numWords, numYNWs, numYNPs):
-
+def proposeQuestion(numNums, numWords, numYNWs, numYNPs, thePerson):
     myNum = random.randint(1, 4)
-    total = numWords+numNums+numYNPs+numYNWs
+    total = numWords + numNums + numYNPs + numYNWs
     userInput = 0
     noEvolFlag = False
-    while(total < 11):
+    while (total < 11):
 
         # word response
         if (numWords < 3 and myNum == 1):
@@ -225,7 +198,7 @@ def proposeQuestion(numNums, numWords, numYNWs, numYNPs):
             userInput = input("input: ")
             deconstr = doThings(userInput)
             for guy in deconstr:
-                interpretWord(guy)
+                interpretWord(guy, thePerson)
         # number response
         elif (numNums < 2 and myNum == 2):
             print("Please respond with a number")
@@ -243,19 +216,18 @@ def proposeQuestion(numNums, numWords, numYNWs, numYNPs):
             numYNWs = numYNWs + 1
             print(random.choice(list(ynQuestionsW)))
             userInput = input("choice: ")
-            interpretYN(userInput, 1)
+            interpretYN(userInput, 1, thePerson)
         elif (numYNPs < 3 and myNum == 4):
             print("Please respond with a Y|N")
             numYNPs = numYNPs + 1
             print(random.choice(list(ynQuestionsP)))
             userInput = input("choice: ")
-            interpretYN(userInput, 2)
+            interpretYN(userInput, 2, thePerson)
         total = numWords + numNums + numYNPs + numYNWs
         userInput = 0
         myNum = 0
         myNum = random.randint(1, 4)
     return noEvolFlag
-
 
 
 if __name__ == '__main__':
@@ -264,14 +236,14 @@ if __name__ == '__main__':
     numWQs = 0
     numPQs = 0
     noEvolFlag = False
-
+    thePerson = TheUser(0, 0, 0)
 
     print("Welcome to the Project\n\tThis will be conducted as a Personality test")
     print("\tYou will be presented with different types of questions and prompted for a response\n")
-    noEvolFlag = proposeQuestion(numNumbQs, numWordQs, numWQs, numPQs)
+    noEvolFlag = proposeQuestion(numNumbQs, numWordQs, numWQs, numPQs, thePerson)
     print("\nThe questions have now completed... Please stand by while we view your results")
-    print("Your seem to be a physical score of ", userPhysMet)
-    print("Your weather had an X", userWeatherMX, " followed by a Y of ", userWeatherMY)
+    print("Your seem to be a physical score of ", thePerson.userPhysMet)
+    print("Your weather had an X", thePerson.userWeatherMX, " followed by a Y of ", thePerson.userWeatherMY)
 
 
 
