@@ -17,10 +17,10 @@ import random
 
 
 # if you need to download some random lib it is probably here
-# nltk.download('punkt')
-# nltk.download('wordnet')
-# nltk.download('omw-1.4')
-# nltk.download('stopwords')
+#nltk.download('punkt')
+#nltk.download('wordnet')
+#nltk.download('omw-1.4')
+#nltk.download('stopwords')
 
 class TheUser:
     def __init__(self, userPhysMet, userWeatherMX, userWeatherMY):
@@ -31,11 +31,11 @@ class TheUser:
 
 noEvolutions = {"Magmar", "Electabuzz", "Chansey", "Mr. Mime", "Pinsir"}
 weakUgly = {"Ratata", "Oddish", "Abra", "Mankey", "Bulbasaur", "Magikarp"}
-weakCute = {"Pichu", "Charmander", "Squirtle", "Dratini"}
-strongPhys = {"Machamp", "Primape", "Dragonite", "Venasaur", "Gyarados"}
+weakCute = {"Pichu", "Charmander", "Squirtle", "Dratini", "Growlithe"}
+strongPhys = {"Machamp", "Primape", "Dragonite", "Venasaur", "Gyarados", "Arcanine"}
 strongSpA = {"Alakazam", "Charizard", "Squirtle", "Pikachu", "Blastoise"}
 
-fireType = {"Charmander", "Charizard", "Magmar"}
+fireType = {"Charmander", "Charizard", "Magmar", "Growlithe", "Arcanine"}
 psyType = {"Alakazam", "Abra", "Chansey", "Mr. Mime"}
 dragonType = {"Dratini", "Dragonite"}
 fightType = {"Machamp", "Mankey", "Primeape"}
@@ -44,12 +44,13 @@ grassType = {"Oddish", "Pinsir", "Bulbasaur", "Venasaur"}
 waterType = {"Squirtle", "Magikarp", "Gyarados", "Blastoise"}
 
 severeWeatherWords = {"thunderstorm", "lightning", "thunder", "storm", "snow", "winter", "yellow"}
-warmWeatherWords = {"Sun", "Beach", "Warm", "hot", "sum", "Red", "Orange", "Spicy"}
-waterWords = {"Boat", "Lake", "Spring", "Rain", "Blue", "Purple", "Swim"}
-grassWords = {"Autumn", "Mess", "Dirty", "Green", "Run", "Hike", "Brown"}
+warmWeatherWords = {"sun", "beach", "warm", "hot", "sum", "red", "orange", "spicy"}
+waterWords = {"boat", "lake", "spring", "rain", "blue", "purple", "swim"}
+grassWords = {"autumn", "mess", "dirty", "green", "run", "hike", "brown"}
 
-physicalWords = {"Sport", "Run", "Hike", "Weight", "Lift", "Autumn", "Mess", "Dirty", "Green", "Team"}
-nonPhysWords = {"Book", "Art", "Comput", "Game", "Clean", "Org", "White", "Black", "Put", "Away", "Solo", "Individ"}
+physicalWords = {"sport", "run", "hike", "weight", "lift", "autumn", "mess", "dirty", "green", "team"}
+nonPhysWords = {"book", "art", "comput", "game", "clean", "org", "white", "black", "put", "away", "solo", "individ",
+                "tidy", "alon"}
 
 numberQuestions = [
     "How many pets have you had in your life?",
@@ -58,12 +59,15 @@ numberQuestions = [
 wordQuestions = {
     "How would you classify the status of your room?",
     "What do you like to do in your free time",
+    "Would you rather do physical(sports or run) or spiritual(books/art or computer)?",
     "What color is your phone background?",
     "What color is your dream car?",
     "What color is your pet?",
+    "What color is your phone?",
     "What colors do you identify with the most?",
     "What is your favorite season? ",
-    "What weather do you like the most? "
+    "What weather do you like the most?",
+    "What was the weather the day you were born?"
 }
 
 # physical or non physical related
@@ -148,19 +152,19 @@ def interpretWord(w, thePerson):
     for guy in warmWeatherWords:
         if (w == guy):
             thePerson.userWeatherMX += 10
-            #increaseWx()
+            # increaseWx()
     for guy in waterWords:
         if (w == guy):
             thePerson.userWeatherMY -= 10
-            #decreaseWy()
+            # decreaseWy()
     for guy in grassWords:
         if (w == guy):
             thePerson.userWeatherMY += 10
-            #increaseWy()
+            # increaseWy()
     for guy in physicalWords:
         if (w == guy):
             thePerson.userPhysMet += 10
-            #increaseP()
+            # increaseP()
     for guy in nonPhysWords:
         if (w == guy):
             thePerson.userPhysMet -= 10
@@ -176,11 +180,11 @@ def interpretYN(w, spin, thePerson):
     elif (spin == 2):
         # physicality
         if (w == "Y" or w == "y"):
-            thePerson.userPhysMet -= 10
-            #decreaseP()
-        elif (w == "N" or w == "n"):
             thePerson.userPhysMet += 10
-            #increaseP()
+            # decreaseP()
+        elif (w == "N" or w == "n"):
+            thePerson.userPhysMet -= 10
+            # increaseP()
 
 
 def proposeQuestion(numNums, numWords, numYNWs, numYNPs, thePerson):
@@ -191,7 +195,7 @@ def proposeQuestion(numNums, numWords, numYNWs, numYNPs, thePerson):
     while (total < 11):
 
         # word response
-        if (numWords < 3 and myNum == 1):
+        if (numWords < 4 and myNum == 1):
             numWords = numWords + 1
             print("Please respond with normal words")
             print(random.choice(list(wordQuestions)))
@@ -230,20 +234,118 @@ def proposeQuestion(numNums, numWords, numYNWs, numYNPs, thePerson):
     return noEvolFlag
 
 
-def useMetrics(senorUser):
-    if(senorUser.userWeatherMX < 0):
-        print("Water or Electric type")
-    elif(senorUser.userWeatherMX > 0):
-        print("Fire or Grass")
-    elif(senorUser == 0):
-        print("More info needed")
+def cycleElecSp():
+    for el in electricType:
+        for sp in strongSpA:
+            if (el == sp):
+                return el
 
-    if(senorUser.userPhysMet <= -10):
-        print("nerd")
-    elif(senorUser.userPhysMet >= 10):
-        print("Mahcamp")
-    elif(senorUser.userPhysMet >-11 and senorUser.userPhysMet < 11 ):
-        print("weak ugly bc im tired")
+
+def cycleElecPhy():
+    for el in electricType:
+        for sp in strongPhys:
+            if (el == sp):
+                return el
+
+
+def cycleFireSp():
+    for fi in fireType:
+        for sp in strongSpA:
+            if (fi == sp):
+                return fi
+
+
+def cycleFirePhy():
+    for fi in fireType:
+        for sp in strongPhys:
+            if (fi == sp):
+                return fi
+
+def cycleWaterSp():
+    for fi in waterType:
+        for sp in strongSpA:
+            if (fi == sp):
+                return fi
+
+
+def cycleWaterPhy():
+    for fi in waterType:
+        for sp in strongPhys:
+            if (fi == sp):
+                return fi
+
+
+
+def cycleGrassPhy():
+    for fi in grassType:
+        for sp in strongPhys:
+            if (fi == sp):
+                return fi
+
+def randomDragon():
+    return random.choice(list(dragonType))
+
+def randomFight():
+    return random.choice(list(fightType))
+
+def randomPsych():
+    return random.choice(list(psyType))
+
+def randomWU():
+    return random.choice(list(weakUgly))
+
+def randomWC():
+    return random.choice(list(weakCute))
+
+def randomNoEv():
+    return random.choice(list(noEvolutions))
+
+
+def determine(mruser, sp, phy):
+    if (mruser.userPhysMet > 0):
+        print(sp)
+    elif (mruser.userPhysMet < 0):
+        print(phy)
+    elif (mruser.userPhysMet == 0):
+        print(randomWC())
+
+
+
+def useMetrics(senorUser, flag):
+    if(flag):
+        if (senorUser.userWeatherMX < 0):
+            for guy in electricType:
+                for guytwo in noEvolutions:
+                    if(guy == guytwo):
+                        print(guy)
+        elif (senorUser.userWeatherMX > 0):
+            for guy in fireType:
+                for guytwo in noEvolutions:
+                    if(guy == guytwo):
+                        print(guy)
+        elif(senorUser.userWeatherMX == 0):
+            print(randomNoEv())
+    else:
+        if(senorUser.userWeatherMX > senorUser.userPhysMet):
+            if (senorUser.userWeatherMX < 0):
+                if (senorUser.userWeatherMY > 0):
+                    print(determine(senorUser, cycleElecSp(), cycleElecPhy()))
+                elif (senorUser.userWeatherMY <= 0):
+                    print(determine(senorUser, cycleWaterSp(), cycleWaterPhy()))
+            elif (senorUser.userWeatherMX > 0):
+                if (senorUser.userWeatherMY >= 0):
+                    print(determine(senorUser, cycleFireSp(), cycleFirePhy()))
+                elif (senorUser.userWeatherMY < 0):
+                    print("Venasaur")
+            elif (senorUser.userWeatherMX == 0):
+                print(randomDragon())
+        elif(senorUser.userWeatherMX < senorUser.userPhysMet):
+            if (senorUser.userPhysMet >= 10):
+                print(randomPsych())
+            elif (senorUser.userPhysMet <= -10):
+                print(randomFight())
+            elif (senorUser.userPhysMet > -11 and senorUser.userPhysMet < 11):
+                randomWU()
 
 
 if __name__ == '__main__':
@@ -258,7 +360,8 @@ if __name__ == '__main__':
     print("\tYou will be presented with different types of questions and prompted for a response\n")
     noEvolFlag = proposeQuestion(numNumbQs, numWordQs, numWQs, numPQs, thePerson)
     print("\nThe questions have now completed... Please stand by while we view your results\n")
-    useMetrics(thePerson)
+    print("\nThe pokemon chosen to accompany you on your journey was chosen to be: ")
+    useMetrics(thePerson, noEvolFlag)
 
 
 
