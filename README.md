@@ -12,7 +12,7 @@ The following explanation is in conjunction with Knowledge Based Systems semeste
      
 * Phase 2: Presenting the Chosen Domain
     * PowerPoint 
-    * Code: main.py
+    * Code: `main.py`
     * ReadMe
     
 * Phase 3: Implementation
