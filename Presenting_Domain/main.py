@@ -17,16 +17,17 @@ import random
 
 
 # if you need to download some random lib it is probably here
-#nltk.download('punkt')
-#nltk.download('wordnet')
-#nltk.download('omw-1.4')
-#nltk.download('stopwords')
+# nltk.download('punkt')
+# nltk.download('wordnet')
+# nltk.download('omw-1.4')
+# nltk.download('stopwords')
 
 class TheUser:
-    def __init__(self, userPhysMet, userWeatherMX, userWeatherMY):
+    def __init__(self, userPhysMet, userWeatherMX, userWeatherMY, userFlag):
         self.userPhysMet = userPhysMet
         self.userWeatherMY = userWeatherMX
         self.userWeatherMX = userWeatherMY
+        self.userFlag = userFlag
 
 
 noEvolutions = {"Magmar", "Electabuzz", "Chansey", "Mr. Mime", "Pinsir"}
@@ -48,16 +49,18 @@ warmWeatherWords = {"sun", "beach", "warm", "hot", "sum", "red", "orange", "spic
 waterWords = {"boat", "lake", "spring", "rain", "blue", "purple", "swim"}
 grassWords = {"autumn", "mess", "dirty", "green", "run", "hike", "brown"}
 
-physicalWords = {"sport", "run", "hike", "weight", "lift", "autumn", "mess", "dirty", "green", "team"}
+physicalWords = {"sport", "run", "hike", "weight", "lift", "autumn", "mess", "dirty", "green", "team", "crack", "brok"}
 nonPhysWords = {"book", "art", "comput", "game", "clean", "org", "white", "black", "put", "away", "solo", "individ",
-                "tidy", "alon"}
+                "tidy", "alon", "perfect", "pristine"}
 
 numberQuestions = [
     "How many pets have you had in your life?",
     "How many siblings do you have?"]
 
 wordQuestions = {
-    "How would you classify the status of your room?",
+    "How would you classify the status of your room?(Is it clean or tidy? or Dirty or messy?",
+    "How would you classify the status of your computer screen? (Is it clean or dirty)",
+    "How would you classify the status of your phone screen? (Is it clean? Cracked? Perfect?)"
     "What do you like to do in your free time",
     "Would you rather do physical(sports or run) or spiritual(books/art or computer)?",
     "What color is your phone background?",
@@ -65,6 +68,7 @@ wordQuestions = {
     "What color is your pet?",
     "What color is your phone?",
     "What colors do you identify with the most?",
+    "What are the colors of your parental figures?",
     "What is your favorite season? ",
     "What weather do you like the most?",
     "What was the weather the day you were born?"
@@ -95,8 +99,7 @@ def tokenize(sentence):
 
 
 def stem(words):
-    ## ****** CODE START ****** we chose lancaster because we liked it more
-
+    ## we chose lancaster because we liked it more
     sentence_stemmedP = []
     sentence_stemmedL = []
     porter = PorterStemmer()
@@ -104,7 +107,6 @@ def stem(words):
     for dude in words:
         sentence_stemmedP.append(porter.stem(dude))
         sentence_stemmedL.append(lancaster.stem(dude))
-
     return sentence_stemmedL
 
 
@@ -114,7 +116,6 @@ def lemmatize(words):
     lemmatizer = WordNetLemmatizer()
     for word in words:
         lemmatized.append(lemmatizer.lemmatize(word, pos="v"))
-
     return lemmatized
 
 
@@ -140,7 +141,6 @@ def doThings(sentence):
 
 def processInfo(info):
     processedInfo = []
-
     return processedInfo
 
 
@@ -191,11 +191,9 @@ def proposeQuestion(numNums, numWords, numYNWs, numYNPs, thePerson):
     myNum = random.randint(1, 4)
     total = numWords + numNums + numYNPs + numYNWs
     userInput = 0
-    noEvolFlag = False
-    while (total < 11):
-
+    while (total < 13):
         # word response
-        if (numWords < 4 and myNum == 1):
+        if (numWords < 5 and myNum == 1):
             numWords = numWords + 1
             print("Please respond with normal words")
             print(random.choice(list(wordQuestions)))
@@ -204,24 +202,24 @@ def proposeQuestion(numNums, numWords, numYNWs, numYNPs, thePerson):
             for guy in deconstr:
                 interpretWord(guy, thePerson)
         # number response
-        elif (numNums < 2 and myNum == 2):
+        elif (myNum == 2 and numNums < 2):
             print("Please respond with a number")
             if (numNums == 1):  # this is the special question to limit the evolutions
                 print(numberQuestions[numNums])
-                userInput = input("choice: ")
-                if (userInput == 0):
-                    noEvolutionsFlag = True
+                userInput = input("number: ")
+                if (userInput == "0"):
+                    thePerson.userFlag = 5
             else:
                 print(numberQuestions[numNums])
-                userInput = input("choice: ")
+                userInput = input("number: ")
             numNums = numNums + 1
-        elif (numYNWs < 3 and myNum == 3):
+        elif (myNum == 3 and numYNWs < 3):
             print("Please respond with a Y|N")
             numYNWs = numYNWs + 1
             print(random.choice(list(ynQuestionsW)))
             userInput = input("choice: ")
             interpretYN(userInput, 1, thePerson)
-        elif (numYNPs < 3 and myNum == 4):
+        elif (myNum == 4 and numYNPs < 3):
             print("Please respond with a Y|N")
             numYNPs = numYNPs + 1
             print(random.choice(list(ynQuestionsP)))
@@ -231,7 +229,6 @@ def proposeQuestion(numNums, numWords, numYNWs, numYNPs, thePerson):
         userInput = 0
         myNum = 0
         myNum = random.randint(1, 4)
-    return noEvolFlag
 
 
 def cycleElecSp():
@@ -261,6 +258,7 @@ def cycleFirePhy():
             if (fi == sp):
                 return fi
 
+
 def cycleWaterSp():
     for fi in waterType:
         for sp in strongSpA:
@@ -275,27 +273,32 @@ def cycleWaterPhy():
                 return fi
 
 
-
 def cycleGrassPhy():
     for fi in grassType:
         for sp in strongPhys:
             if (fi == sp):
                 return fi
 
+
 def randomDragon():
     return random.choice(list(dragonType))
+
 
 def randomFight():
     return random.choice(list(fightType))
 
+
 def randomPsych():
     return random.choice(list(psyType))
+
 
 def randomWU():
     return random.choice(list(weakUgly))
 
+
 def randomWC():
     return random.choice(list(weakCute))
+
 
 def randomNoEv():
     return random.choice(list(noEvolutions))
@@ -310,23 +313,22 @@ def determine(mruser, sp, phy):
         print(randomWC())
 
 
-
-def useMetrics(senorUser, flag):
-    if(flag):
+def useMetrics(senorUser):
+    if (senorUser.userFlag == 5):
         if (senorUser.userWeatherMX < 0):
             for guy in electricType:
                 for guytwo in noEvolutions:
-                    if(guy == guytwo):
+                    if (guy == guytwo):
                         print(guy)
         elif (senorUser.userWeatherMX > 0):
             for guy in fireType:
                 for guytwo in noEvolutions:
-                    if(guy == guytwo):
+                    if (guy == guytwo):
                         print(guy)
-        elif(senorUser.userWeatherMX == 0):
+        elif (senorUser.userWeatherMX == 0):
             print(randomNoEv())
     else:
-        if(senorUser.userWeatherMX > senorUser.userPhysMet):
+        if (senorUser.userWeatherMX > senorUser.userPhysMet):
             if (senorUser.userWeatherMX < 0):
                 if (senorUser.userWeatherMY > 0):
                     print(determine(senorUser, cycleElecSp(), cycleElecPhy()))
@@ -339,7 +341,7 @@ def useMetrics(senorUser, flag):
                     print("Venasaur")
             elif (senorUser.userWeatherMX == 0):
                 print(randomDragon())
-        elif(senorUser.userWeatherMX < senorUser.userPhysMet):
+        elif (senorUser.userWeatherMX < senorUser.userPhysMet):
             if (senorUser.userPhysMet >= 10):
                 print(randomPsych())
             elif (senorUser.userPhysMet <= -10):
@@ -353,15 +355,14 @@ if __name__ == '__main__':
     numNumbQs = 0
     numWQs = 0
     numPQs = 0
-    noEvolFlag = False
-    thePerson = TheUser(0, 0, 0)
+    thePerson = TheUser(0, 0, 0, 0)
 
     print("Welcome to the Project\n\tThis will be conducted as a Personality test")
     print("\tYou will be presented with different types of questions and prompted for a response\n")
-    noEvolFlag = proposeQuestion(numNumbQs, numWordQs, numWQs, numPQs, thePerson)
+    proposeQuestion(numNumbQs, numWordQs, numWQs, numPQs, thePerson)
     print("\nThe questions have now completed... Please stand by while we view your results\n")
-    print("\nThe pokemon chosen to accompany you on your journey was chosen to be: ")
-    useMetrics(thePerson, noEvolFlag)
+    print("\nThe pokemon chosen for your journey was chosen to be: ")
+    useMetrics(thePerson)
 
 
 
