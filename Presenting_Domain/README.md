@@ -18,11 +18,18 @@ The idea for this chatbot came from the first part of the Pokemon mystery dungeo
     
 The project was developed and debugged largely using the platform pycharm.
 
-Since there exists only one file related to the compilation of the 
+There exists only one file related to the compilation of the project shown below:
 ```bash
 Presenting_Domain/main.py
+``` 
+The user will only need the aforementioned software. There will be four libraries commented out at the top of the code(beneath the class declaration), if the users computer requests something, un-comment these lines and compile again, it should work. 
+
+```python
+# nltk.download('punkt')
+# nltk.download('wordnet')
+# nltk.download('omw-1.4')
+# nltk.download('stopwords')
 ```
- the user will only need the aforementioned software. There will be four libraries commented out at the top of the code(beneath the class declaration), if the users computer requests something, un-comment these lines and compile again, it should work. 
 
 
 
