@@ -3,7 +3,7 @@
 by Spencer Johnson & Marc Escote & Jan Bellavista
 on Friday 17th March, 2023
 
-The following explanation is in conjunction with Knowledge Based Systems semester 2 project. The repository used for the project can be found [here](https://github.com/papasj19/ChatBot). This project was conceptualized from the popular nintendo [Pokemon Game](https://mysterydungeon.pokemon.com/en-us/).
+The following explanation is in conjunction with Knowledge Based Systems semester 2 project. The repository used for the project can be found [here](https://github.com/papasj19/ChatBot). This project was conceptualized from the popular Nintendo [Pokemon Game](https://mysterydungeon.pokemon.com/en-us/).
 
 The idea for this chatbot came from the first part of the Pokemon mystery dungeon games. During this sequence the user is prompted through a series of questions and at the end they are given a playable character based upon how they answered the questions. As we keep track of how the users have responded we build them a score that is the metric used for the character calculation. 
 
@@ -33,12 +33,12 @@ The user will only need the aforementioned software. There will be four librarie
 
 ## Questions to be asked
 
-At the time of the this writing the questions are broken up into four different categories. The first wants the user to input a number, the second type wants the user to input words, and the third and fourth ask the user for a letter(Y/N). The third and fourth types of questions needed to be placed in order to for sure that there is some sort of drastic enough difference that will allow for a clean calculation. The program uses a random number generator to decide which of the four categories to be used. As of now the submission will use 2 number, 5 word, and 6 Y/N(4 Weather and 4 Activity) questions in order to achieve a score. There is only two number questions programmed but there exist more word questions and Y/N questions. Again a random number generator is used to determine which of the questions is asked at each time. This again results in problems since we are working with only ten or so questions and is discussed more in the 
+At the time of the this writing the questions are broken up into four different categories. The first wants the user to input a number, the second type wants the user to input words, and the third and fourth ask the user for a letter(Y/N). The third and fourth types of questions needed to be placed in order to for sure that there is some sort of drastic enough difference that will allow for a clean calculation. The program uses a random number generator to decide which of the four categories to be used. As of now the submission will use 2 number, 5 word, and 6 Y/N(4 Weather and 4 Activity) questions in order to achieve a score. There is only two number questions programmed but there exist more word questions and Y/N questions. Again a random number generator is used to determine which of the questions is asked at each time.  
 
 ## Limitations
 
 * Random Questions 
-    * Since the group decided to have the questions presented to the user randomly, to provide a more unique and diverse experience, sometimes the questions are repeated. This is with the word questions and the Y/N questions, since we do not use all of them. We use them at random and do not explicitly keep track of which ones were used resulting in repeating. This will be fixed in the final project. 
+    * Since the group decided to have the questions presented to the user randomly, to provide a more unique and diverse experience, sometimes the questions are structured weirdly or seem random, it is because they are. 
      
 * Based On Input Type
     * There exists different kind of questions and the program specifies what is would like to receive from the user based upon the question asked. As of now the program does not check the user input for wrong information or ensure that the information is allowed before moving forward. Since this is a proposal we assumed that the user would have full understanding of how the program would work and would not enter bad information. 
