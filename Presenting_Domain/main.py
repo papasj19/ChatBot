@@ -57,7 +57,7 @@ numberQuestions = [
     "How many pets have you had in your life?",
     "How many siblings do you have?"]
 
-wordQuestions = {
+wordQuestions = [
     "How would you classify the status of your room?(Is it clean or tidy? or Dirty or messy?",
     "How would you classify the status of your computer screen? (Is it clean or dirty)",
     "How would you classify the status of your phone screen? (Is it clean? Cracked? Perfect?)"
@@ -72,25 +72,27 @@ wordQuestions = {
     "What is your favorite season? ",
     "What weather do you like the most?",
     "What was the weather the day you were born?"
-}
+]
 
-# physical or non physical related
-ynQuestionsP = {
+# physical or nonphysical related
+ynQuestionsP = [
     "Do you dislike spicy food?",
     "Is writing a book something you could accomplish right now?",
     "Are you a fast learner?",
     "Are you computer saavy?",
-    "Do you enjoy reading?"
-}
+    "Do you enjoy reading?",
+    "Is jumping off a roof crazy?",
+    "Is ski-ing down a mountain crazy?"
+]
 
 # weather related
-ynQuestionsW = {
+ynQuestionsW = [
     "Do you like getting caught in the rain?",
     "Do you enjoy listening to thunderstorms?",
     "Do you drink a lot of water?",
     "Do you use a lot of sun screen?",
     "Do you dislike sweating?"
-}
+]
 
 
 def tokenize(sentence):
@@ -187,16 +189,32 @@ def interpretYN(w, spin, thePerson):
             # increaseP()
 
 
+def checkAsked(rand, asked: list):
+    return rand in asked
+
+
+
 def proposeQuestion(numNums, numWords, numYNWs, numYNPs, thePerson):
     myNum = random.randint(1, 4)
     total = numWords + numNums + numYNPs + numYNWs
+    myWordRand = 0
+    YNQPasked = []
+    YNPWordRand = 0
+    YNQWasked = []
+    YNWWorkRand = 0
+    wordQasked = []
     userInput = 0
     while (total < 13):
+
         # word response
-        if (numWords < 5 and myNum == 1):
+        if numWords < 5 and myNum == 1:
+            myWordRand = random.randint(0, len(wordQuestions)-1)
+            while checkAsked(myWordRand, wordQasked):
+                myWordRand = random.randint(1, len(wordQuestions)-1)
+            wordQasked.append(myWordRand)
             numWords = numWords + 1
             print("Please respond with normal words")
-            print(random.choice(list(wordQuestions)))
+            print(wordQuestions[myWordRand])
             userInput = input("input: ")
             deconstr = doThings(userInput)
             for guy in deconstr:
@@ -214,15 +232,23 @@ def proposeQuestion(numNums, numWords, numYNWs, numYNPs, thePerson):
                 userInput = input("number: ")
             numNums = numNums + 1
         elif (myNum == 3 and numYNWs < 3):
+            YNWWorkRand = random.randint(0, len(ynQuestionsW)-1)
+            while checkAsked(YNWWorkRand, YNQWasked):
+                YNWWorkRand = random.randint(1, len(ynQuestionsW)-1)
+            YNQWasked.append(YNWWorkRand)
             print("Please respond with a Y|N")
             numYNWs = numYNWs + 1
-            print(random.choice(list(ynQuestionsW)))
+            print(ynQuestionsW[YNWWorkRand])
             userInput = input("choice: ")
             interpretYN(userInput, 1, thePerson)
         elif (myNum == 4 and numYNPs < 3):
+            YNPWordRand = random.randint(0, len(ynQuestionsP)-1)
+            while checkAsked(YNPWordRand, YNQPasked):
+                YNPWordRand = random.randint(0, len(ynQuestionsP)-1)
+            YNQPasked.append(YNPWordRand)
             print("Please respond with a Y|N")
             numYNPs = numYNPs + 1
-            print(random.choice(list(ynQuestionsP)))
+            print(ynQuestionsP[YNPWordRand])
             userInput = input("choice: ")
             interpretYN(userInput, 2, thePerson)
         total = numWords + numNums + numYNPs + numYNWs
