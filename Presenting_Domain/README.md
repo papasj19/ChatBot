@@ -18,7 +18,13 @@ The idea for this chatbot came from the first part of the Pokemon mystery dungeo
     
 The project was developed and debugged largely using the platform pycharm.
 
-Since there exists only one file related to the compilation of, the main.py, the user will only need the aforementioned software. There will be four libraries commented out at the top of the code(beneath the class declaration), if the users computer requests something, un-comment these lines and compile again, it should work. 
+Since there exists only one file related to the compilation of the 
+```bash
+Presenting_Domain/main.py
+```
+ the user will only need the aforementioned software. There will be four libraries commented out at the top of the code(beneath the class declaration), if the users computer requests something, un-comment these lines and compile again, it should work. 
+
+
 
 ## Questions to be asked
 
