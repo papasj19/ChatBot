@@ -22,7 +22,7 @@ There exists only one file related to the compilation of the project shown below
 ```bash
 Presenting_Domain/main.py
 ``` 
-The user will only need the aforementioned software. There will be four libraries commented out at the top of the code(beneath the class declaration), if the users computer requests something, un-comment these lines and compile again, it should work. 
+The user will only need the aforementioned software. There will be four libraries commented out at the top of the code(beneath the class declaration), if the users computer requests another library upon compilation, un-comment these lines and compile again, it should work. 
 
 ```python
 # nltk.download('punkt')
@@ -30,8 +30,6 @@ The user will only need the aforementioned software. There will be four librarie
 # nltk.download('omw-1.4')
 # nltk.download('stopwords')
 ```
-
-
 
 ## Questions to be asked
 
@@ -46,7 +44,7 @@ At the time of the this writing the questions are broken up into four different 
     * There exists different kind of questions and the program specifies what is would like to receive from the user based upon the question asked. As of now the program does not check the user input for wrong information or ensure that the information is allowed before moving forward. Since this is a proposal we assumed that the user would have full understanding of how the program would work and would not enter bad information. 
 
 * Metric Scoring 
-    *  project. 
+    *  The scoring is not the best algorithm in the world and the system could very well be flawed. As of now it is more of a demonstration as to what the group will do later with more options. At the the time of this writing the team got together to begin discussing the new metric equation and how to utilize it best.  
      
 * Differences Between Actual Games
     * Obviously we could not implement everything correctly in relation to the franchise and the lore. There existed parts (types, moves, etc) that had to be omitted in order to be able to deliver a working prototype.  This could be fixed and become more realistic later once an external database of Pokémon is connected and allows for different uses without the team needing to program it manually. 
