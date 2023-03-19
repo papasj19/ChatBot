@@ -52,7 +52,9 @@ At the time of the this writing the questions are broken up into four different 
 
 ## Contact
 
-Spencer Johnson - spencerjames.johnson@students.salle.url.edu - Social: [@papasj19](https://www.instagram.com/papasj19/) - GitHub:  [@papasj19](https://github.com/papasj19) 
+Spencer Johnson - spencerjames.johnson@students.salle.url.edu - Social: [@papasj19](https://www.instagram.com/papasj19/) - GitHub:  [@papasj19](https://github.com/papasj19)
+
 Marc Escoté marc.escote@students.salle.url.edu
+
 Jan Bellavista - jan.bellavista@students.salle.url.edu
 
