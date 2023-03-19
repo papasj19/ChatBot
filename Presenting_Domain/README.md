@@ -38,7 +38,7 @@ At the time of the this writing the questions are broken up into four different 
 ## Limitations
 
 * Random Questions 
-    * Since the group decided to have the questions presented to the user randomly, to provide a more unique and diverse experience, sometimes the questions are structured weirdly or seem random, it is because they are. 
+    * Since the group decided to have the questions presented to the user randomly, to provide a more unique and diverse experience, sometimes the questions are structured weirdly or seem random, it is because they are. In the original version, the questions were not checked for duplicates but this was fixed as there still was time before the deadline. 
      
 * Based On Input Type
     * There exists different kind of questions and the program specifies what is would like to receive from the user based upon the question asked. As of now the program does not check the user input for wrong information or ensure that the information is allowed before moving forward. Since this is a proposal we assumed that the user would have full understanding of how the program would work and would not enter bad information. 
@@ -53,4 +53,6 @@ At the time of the this writing the questions are broken up into four different 
 ## Contact
 
 Spencer Johnson - spencerjames.johnson@students.salle.url.edu - Social: [@papasj19](https://www.instagram.com/papasj19/) - GitHub:  [@papasj19](https://github.com/papasj19) 
+Marc Escoté marc.escote@students.salle.url.edu
+Jan Bellavista - jan.bellavista@students.salle.url.edu
 
