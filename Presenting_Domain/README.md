@@ -6,6 +6,11 @@ on Friday 17th March, 2023
 The following explanation is in conjunction with Knowledge Based Systems semester 2 project. The repository used for the project can be found [here](https://github.com/papasj19/ChatBot). This project was conceptualized from the popular Nintendo [Pokemon Game](https://mysterydungeon.pokemon.com/en-us/).
 
 The idea for this chatbot came from the first part of the Pokemon mystery dungeon games. During this sequence the user is prompted through a series of questions and at the end they are given a playable character based upon how they answered the questions. As we keep track of how the users have responded we build them a score that is the metric used for the character calculation. 
+     
+* Presenting the Chosen Domain
+    * PowerPoint: Presentation
+    * Code: `main.py`
+    * This document: `README.md`
 
 ## System requirements
 
