@@ -1,0 +1,206 @@
+@prefix : <http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6/> .
+
+<http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6> rdf:type owl:Ontology .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Aquatic
+:Aquatic rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Restriction ;
+                               owl:onProperty owl:topObjectProperty ;
+                               owl:someValuesFrom :Water
+                             ] ;
+         rdfs:subClassOf :EggGroup .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Classification
+:Classification rdf:type owl:Class ;
+                rdfs:subClassOf :Pokemon .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Cute
+:Cute rdf:type owl:Class ;
+      rdfs:subClassOf :Weak ;
+      owl:disjointWith :Ugly .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Dragon
+:Dragon rdf:type owl:Class ;
+        rdfs:subClassOf :Type .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#EggGroup
+:EggGroup rdf:type owl:Class ;
+          rdfs:subClassOf :Pokemon .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Electric
+:Electric rdf:type owl:Class ;
+          rdfs:subClassOf :Type .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Evolution
+:Evolution rdf:type owl:Class ;
+           rdfs:subClassOf :Pokemon .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#EvolutionMethod
+:EvolutionMethod rdf:type owl:Class ;
+                 rdfs:subClassOf :Evolution .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Field
+:Field rdf:type owl:Class ;
+       rdfs:subClassOf :EggGroup .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Fighting
+:Fighting rdf:type owl:Class ;
+          rdfs:subClassOf :Type ;
+          owl:disjointWith :Flying .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Fire
+:Fire rdf:type owl:Class ;
+      rdfs:subClassOf :Type ;
+      owl:disjointWith :Grass ,
+                       :Water .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Flying
+:Flying rdf:type owl:Class ;
+        rdfs:subClassOf :Type .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Ghost
+:Ghost rdf:type owl:Class ;
+       rdfs:subClassOf :Type .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Grass
+:Grass rdf:type owl:Class ;
+       rdfs:subClassOf :Type ;
+       owl:disjointWith :Water .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#LevelUp
+:LevelUp rdf:type owl:Class ;
+         rdfs:subClassOf :EvolutionMethod .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#MegaEvolution
+:MegaEvolution rdf:type owl:Class ;
+               rdfs:subClassOf :Evolution .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Method
+:Method rdf:type owl:Class ;
+        rdfs:subClassOf :Region .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Physical
+:Physical rdf:type owl:Class ;
+          rdfs:subClassOf :Strong ;
+          owl:disjointWith :Spritual .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Pokemon
+:Pokemon rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Psychic
+:Psychic rdf:type owl:Class ;
+         rdfs:subClassOf :Type .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Region
+:Region rdf:type owl:Class ;
+        rdfs:subClassOf :Pokemon .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Route
+:Route rdf:type owl:Class ;
+       rdfs:subClassOf :Region .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Spritual
+:Spritual rdf:type owl:Class ;
+          rdfs:subClassOf :Strong .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Stone
+:Stone rdf:type owl:Class ;
+       rdfs:subClassOf :EvolutionMethod .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Strong
+:Strong rdf:type owl:Class ;
+        rdfs:subClassOf :Classification ;
+        owl:disjointWith :Weak .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Trading
+:Trading rdf:type owl:Class ;
+         rdfs:subClassOf :EvolutionMethod .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Type
+:Type rdf:type owl:Class ;
+      rdfs:subClassOf :Pokemon .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Ugly
+:Ugly rdf:type owl:Class ;
+      rdfs:subClassOf :Weak .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Volcanic
+:Volcanic rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty owl:topObjectProperty ;
+                                owl:someValuesFrom :Fire
+                              ] ;
+          rdfs:subClassOf :EggGroup .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Water
+:Water rdf:type owl:Class ;
+       rdfs:subClassOf :Type .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Weak
+:Weak rdf:type owl:Class ;
+      rdfs:subClassOf :Classification .
+
+
+###  http://www.semanticweb.org/papasj/ontologies/2023/2/untitled-ontology-6#Winged
+:Winged rdf:type owl:Class ;
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty owl:topObjectProperty ;
+                              owl:someValuesFrom :Flying
+                            ] ;
+        rdfs:subClassOf :EggGroup .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Evolution
+                :Pokemon
+                :Strong
+                :Weak
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
