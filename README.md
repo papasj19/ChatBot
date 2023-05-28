@@ -14,12 +14,18 @@ The following explanation is in conjunction with Knowledge Based Systems semeste
     * PowerPoint 
     * Code: `main.py`
     * `README.md`
+     
+* AC2: Ontology
+    * report.pdf/.docx
+    * ontology.owx
+    * ontology.ttl
     
-* Phase 3: Implementation
+* Phase 3: Implementation (yet to be pushed)
 
 ## System requirements
 
-* [JetBrains PyCharm](https://www.jetbrains.com/pycharm/) 
+* [JetBrains PyCharm](https://www.jetbrains.com/pycharm/)
+* [Protege](https://protege.stanford.edu) 
 * Libraries used:
 	* [nltk](https://www.nltk.org)  
 	* [pandas](https://pandas.pydata.org)
@@ -29,7 +35,7 @@ The following explanation is in conjunction with Knowledge Based Systems semeste
 
 ## What does our Chatbot do?
 
-This chatbot will help the user to 
+This chatbot will help the user to be given a pokemon depending on information they provide
 
 ## Other Important Info: 
 
@@ -37,6 +43,8 @@ The group found it to be important to touch upon the following points:
 
 The first point would be the NLP. The code and libraries were acquired through attendence at a masterclass during the semester. The libraries utilized are listed in the system requirements and the process followed will closely resemble what we learned during the aforementioned session. 
 
+The second point is that the group utilized the above listed program [Protege](https://protege.stanford.edu) to implement AC2
+
 ## Contact
 
-Spencer Johnson - spencerjames.johnson@students.salle.url.edu - Social: [@papasj19](https://www.instagram.com/papasj19/) - GitHub:  [@papasj19](https://github.com/papasj19) 
+Spencer Johnson - spencerjames.johnson@students.salle.url.edu - GitHub:  [@papasj19](https://github.com/papasj19) 
