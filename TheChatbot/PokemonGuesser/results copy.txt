@@ -1,0 +1,24 @@
+
+
+The Following information has been added:
+name: testh   scores: weather->5;act->-15;oth->5;indf-> 10
+questions asked: When traveling do you plan heavily for the weather? answer: I Love It
+with score: {'neg': 0.0, 'neu': 0.323, 'pos': 0.677, 'compound': 0.6369}
+questions asked: Do you enjoy sailing? answer: It Is Important
+with score: {'neg': 0.0, 'neu': 0.526, 'pos': 0.474, 'compound': 0.2023}
+questions asked: How often do you see your family? answer: It’S Fun
+with score: {'neg': 0.0, 'neu': 0.233, 'pos': 0.767, 'compound': 0.5106}
+questions asked: Would you consider doing an erasmus? answer: Never
+with score: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+questions asked: Would you agree that your computer screen is dirty? answer: No
+with score: {'neg': 1.0, 'neu': 0.0, 'pos': 0.0, 'compound': -0.296}
+questions asked: How much do you like going to the mountains answer: No
+with score: {'neg': 1.0, 'neu': 0.0, 'pos': 0.0, 'compound': -0.296}
+questions asked: Do you enjoy training for marathons? answer: I Hate It
+with score: {'neg': 0.649, 'neu': 0.351, 'pos': 0.0, 'compound': -0.5719}
+questions asked: Are you afraid of heights? answer: No
+with score: {'neg': 1.0, 'neu': 0.0, 'pos': 0.0, 'compound': -0.296}
+questions asked: Do you agree that you are a strong swimmer? answer: No
+with score: {'neg': 1.0, 'neu': 0.0, 'pos': 0.0, 'compound': -0.296}
+questions asked: Is watching thunderstorms enjoyable? answer: Yes
+with score: {'neg': 0.0, 'neu': 0.0, 'pos': 1.0, 'compound': 0.4019}

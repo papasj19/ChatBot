@@ -1,0 +1,5 @@
+water: squirtle, psyduck, poliwag, tentacool, slowpoke, seel, shellder, krabby, horsea, goldeen, staryu, magikarp, lapras, wartortle, blastoise, golduck, poliwhirl, poliwrath, tentacruel, slowbro, dewgong, cloyster, kingler, seadra, seaking, starmie, gyarados, vaporeon, 
+fire: charmander, vulpix, growlithe, ponyta, moltres, charmeleon, charizard, ninetales, arcanine, rapidash, magmar, flareon, 
+fight: mankey, machop, primeape, machoke, machamp, hitmonlee, hitmonchan, 
+grass: bulbasaur, oddish, bellsprout, exeggcute, tangela, ivysaur, venusaur, gloom, vileplume, weepinbell, victreebel, exeggutor, 
+psychic: abra, drowzee, mewtwo, mew, kadabra, alakazam, hypno, mr-mime, 

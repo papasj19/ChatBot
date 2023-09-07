@@ -20,7 +20,7 @@ The following explanation is in conjunction with Knowledge Based Systems semeste
     * ontology.owx
     * ontology.ttl
     
-* Phase 3: Implementation (yet to be pushed)
+* Phase 3: Implementation (Located in other folder)
 
 ## System requirements
 
